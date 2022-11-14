@@ -21,6 +21,7 @@ public class Wordle{
   // If a letter is not in the word, display a hyphen "-"
   // If a letter is in the word, but not in the correct spot, and there are more remaining that are not accounted for, display an asteristick "*"
   // example : word is READY, guess made is ARRAY, we see * * - - -
+  // Subtract 1 from your remaining guesses after a valid guess
   private String makeGuess(){
     Scanner input = new Scanner(System.in);
     String reultToDisplay = "";
