@@ -14,4 +14,19 @@ public class Wordle{
   private String selectWord(){
     return (WORD_LIST[(int)(Math.random()* WORD_LIST.length)]);
   }
+
+  // Only accept 5 letter guesses and only accept letters
+  // Format the guess to be lowercase
+  // If a letter is in the correct spot, display that letter
+  // If a letter is not in the word, display a hyphen "-"
+  // If a letter is in the word, but not in the correct spot, and there are more remaining that are not accounted for, display an asteristick "*"
+  // example : word is READY, guess made is ARRAY, we see * * - - -
+  private String makeGuess(){
+    Scanner input = new Scanner(System.in);
+    String reultToDisplay = "";
+
+
+
+    return resultToDisplay;
+  }
 }
