@@ -81,8 +81,19 @@ public class Wordle{
           }
         }
       }
-      
-    }
+      // sets asterisks for things that Dont match, exist somewhere, else, have "num remaing" greater than 0
+      // Hyphens instead, if numRemaing is 0
+      for(int  i = 0; i < guess.length(); i ++){
+        boolean exists = false;
+        for(int j = 0; j < charachterList.size(); j++){
+          if(guess.charAt(i) == charachterList.get(j)){
+            exists = true;
+          }
+        }
+      if(guess.charAt(i) != currentWord.charAt(i) && exists){
+        
+      }
+      }
     return resultToDisplay;
   }
 }
