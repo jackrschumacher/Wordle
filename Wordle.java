@@ -42,6 +42,15 @@ public class Wordle{
           indexInList = j;
         }
       }
+      // A duplicate was found
+      if(indexInList >=0){
+        numRemaining.set(indexInList, numRemaining.get(indexInList) + 1);
+      }
+      // New Letter found
+      else{
+        charachterList.add(charachterToCheck);
+        numRemaining.add(1);
+      }
     }
     return resultToDisplay;
   }
