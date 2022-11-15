@@ -55,9 +55,10 @@ public class Wordle{
 
       char[] stringBuilder = new char [5];
       boolean isValid = true;
+      String guess = "";
       while(!isValid){
         System.out.println("Make a 5 letter Guess:")
-        String guess = input.nextLine().toLowerCase();
+        guess = input.nextLine().toLowerCase();
         isValid = true;
         for(int i = 0; i < guess.length(); i++){
           if(!Character.isAlphabetic(guess.charAt(i))){
@@ -66,6 +67,13 @@ public class Wordle{
         }
         if(guess.length() != 5){
           isValid = false;
+        }
+      }
+      // end of loop, we have a valid guess
+
+      for(int i = 0; i < guess.length(); i++){
+        if(guess.charAt(i) == currentWord.charAt(i)){
+          stringBuilder[i] = guess.charAt(i);
         }
       }
       
