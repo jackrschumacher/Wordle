@@ -51,6 +51,11 @@ public class Wordle{
         charachterList.add(charachterToCheck);
         numRemaining.add(1);
       }
+      // End of loop, lists are created
+
+      char[] stringBuilder = new char [5];
+      System.out.println("Make a 5 letter Guess:")
+      String guess = input.nextLine().toLowerCase();
     }
     return resultToDisplay;
   }
