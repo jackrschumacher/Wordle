@@ -4,7 +4,7 @@ public class Wordle{
 
   // Word Acessses When game is run
   private String currentWord;
-  private int guessesRemaining;
+  private ArrayList<String> guesses;
 
   public Wordle(){
     currentWord = selectWord();
@@ -24,7 +24,7 @@ public class Wordle{
   // Subtract 1 from your remaining guesses after a valid guess
   private String makeGuess(){
     Scanner input = new Scanner(System.in);
-    String reultToDisplay = "";
+    String resultToDisplay = "";
 
     ArrayList<Character> charachterList = new ArrayList<Character>();
     ArrayList<Integer> numRemaining = new ArrayList<Integer>();
@@ -37,7 +37,7 @@ public class Wordle{
       char charachterToCheck = currentWord.charAt(i);
       int indexInList = -1;
       
-      for(int j = 0; i < charachterList.size(); j++){
+      for(int j = 0; j < charachterList.size(); j++){
         if(charachterToCheck == charachterList.get(i)){
           indexInList = j;
         }
@@ -51,45 +51,46 @@ public class Wordle{
         charachterList.add(charachterToCheck);
         numRemaining.add(1);
       }
-      // End of loop, lists are created
+    }
+    // End of loop, lists are created
 
-      char[] stringBuilder = new char [5];
-      boolean isValid = true;
-      String guess = "";
-      while(!isValid){
-        System.out.println("Make a 5 letter Guess:")
-        guess = input.nextLine().toLowerCase();
-        isValid = true;
-        for(int i = 0; i < guess.length(); i++){
-          if(!Character.isAlphabetic(guess.charAt(i))){
-            isValid = false;
-          }
-        }
-        if(guess.length() != 5){
+    char[] stringBuilder = new char [5];
+    boolean isValid = true;
+    String guess = "";
+    while(!isValid){
+      System.out.println("Make a 5 letter Guess:");
+      guess = input.nextLine().toLowerCase();
+      isValid = true;
+      for(int i = 0; i < guess.length(); i++){
+        if(!Character.isAlphabetic(guess.charAt(i))){
           isValid = false;
         }
       }
-      // end of loop, we have a valid guess
+      if(guess.length() != 5){
+        isValid = false;
+      }
+    }
+    // end of loop, we have a valid guess
 
-      for(int i = 0; i < guess.length(); i++){
-        if(guess.charAt(i) == currentWord.charAt(i)){
-          stringBuilder[i] = guess.charAt(i);
-          for(int j = 0; j < charachterList.size(); j++){
-            if(guess.charAt(i) == charachterList.get(i)){
-              numRemaining.set(i, numRemaining.get(i) - 1);
-            }
+    for(int i = 0; i < guess.length(); i++){
+      if(guess.charAt(i) == currentWord.charAt(i)){
+        stringBuilder[i] = guess.charAt(i);
+        for(int j = 0; j < charachterList.size(); j++){
+          if(guess.charAt(i) == charachterList.get(i)){
+            numRemaining.set(i, numRemaining.get(i) - 1);
           }
         }
       }
-      // sets asterisks for things that Dont match, exist somewhere, else, have "num remaing" greater than 0
-      // Hyphens instead, if numRemaing is 0
-      for(int  i = 0; i < guess.length(); i ++){
-        boolean exists = false;
-        for(int j = 0; j < charachterList.size(); j++){
-          if(guess.charAt(i) == charachterList.get(j)){
-            exists = true;
-          }
+    }
+    // sets asterisks for things that Dont match, exist somewhere, else, have "num remaing" greater than 0
+    // Hyphens instead, if numRemaing is 0
+    for(int i = 0; i < guess.length(); i++){
+      boolean exists = false;
+      for(int j = 0; j < charachterList.size(); j++){
+        if(guess.charAt(i) == charachterList.get(j)){
+          exists = true;
         }
+      }
       if(guess.charAt(i) != currentWord.charAt(i) && exists){
         for(int j = 0; j < charachterList.size(); j++){
           if(guess.charAt(i) == charachterList.get(j)){
@@ -103,7 +104,7 @@ public class Wordle{
           }
         }
       }
-      }
+    }
     return resultToDisplay;
   }
 }
