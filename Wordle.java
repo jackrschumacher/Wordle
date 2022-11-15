@@ -91,7 +91,17 @@ public class Wordle{
           }
         }
       if(guess.charAt(i) != currentWord.charAt(i) && exists){
-        
+        for(int j = 0; j < charachterList.size(); j++){
+          if(guess.charAt(i) == charachterList.get(j)){
+            if(numRemaining.get(j) > 0){
+              stringBuilder[i] = 'i';
+              numRemaining.set(j, numRemaining.get(j) - 1);
+            }
+            else{
+              stringBuilder[i] = '-';
+            }
+          }
+        }
       }
       }
     return resultToDisplay;
