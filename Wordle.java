@@ -33,10 +33,13 @@ public class Wordle{
     // For each charachter, check if it is in the charachterList alreay
     // If not, add a new charachter to the character list and add a "1" to the end of the numRemaining List
     // If it is already in charachterList, increment at the same index in the remaining list
-    for(int i = 0;charachterList < numRemaining - 1; i++){
-      for(int j = 0 ; j < charachterList.Length - 1){
-        if charAt(j){
-          
+    for(int i = 0; i < currentWord.length(); i++){
+      char charachterToCheck = currentWord.charAt(i);
+      int indexInList = -1;
+      
+      for(int j = 0; i < charachterList.size(); j++){
+        if(charachterToCheck == charachterList.get(i)){
+          indexInList = j;
         }
       }
     }
