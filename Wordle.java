@@ -26,7 +26,7 @@ public class Wordle{
     Scanner input = new Scanner(System.in);
     String reultToDisplay = "";
 
-    ArrayList<Charachter> charachterList = new ArrayList<Charachter>();
+    ArrayList<Character> charachterList = new ArrayList<Character>();
     ArrayList<Integer> numRemaining = new ArrayList<Integer>();
 
     // Loop through our word
@@ -54,8 +54,21 @@ public class Wordle{
       // End of loop, lists are created
 
       char[] stringBuilder = new char [5];
-      System.out.println("Make a 5 letter Guess:")
-      String guess = input.nextLine().toLowerCase();
+      boolean isValid = true;
+      while(!isValid){
+        System.out.println("Make a 5 letter Guess:")
+        String guess = input.nextLine().toLowerCase();
+        isValid = true;
+        for(int i = 0; i < guess.length(); i++){
+          if(!Character.isAlphabetic(guess.charAt(i))){
+            isValid = false;
+          }
+        }
+        if(guess.length() != 5){
+          isValid = false;
+        }
+      }
+      
     }
     return resultToDisplay;
   }
