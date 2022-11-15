@@ -8,7 +8,7 @@ public class Wordle{
 
   public Wordle(){
     currentWord = selectWord();
-    guessesRemaining = 6;
+    guesses = new ArrayList<String>();
   }
   
   private String selectWord(){
@@ -26,8 +26,16 @@ public class Wordle{
     Scanner input = new Scanner(System.in);
     String reultToDisplay = "";
 
+    ArrayList<Charachter> charachterList = new ArrayList<Charachter>();
+    ArrayList<Integer> numRemaining = new ArrayList<Integer>();
 
-
+    // Loop through our word
+    // For each charachter, check if it is in the charachterList alreay
+    // If not, add a new charachter to the character list and add a "1" to the end of the numRemaining List
+    // If it is already in charachterList, increment at the same index in the remaining list
+    for(int i = 0;charachterList < numRemaining - 1; i++){
+      
+    }
     return resultToDisplay;
   }
 }
