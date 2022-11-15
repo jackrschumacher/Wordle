@@ -74,6 +74,11 @@ public class Wordle{
       for(int i = 0; i < guess.length(); i++){
         if(guess.charAt(i) == currentWord.charAt(i)){
           stringBuilder[i] = guess.charAt(i);
+          for(int j = 0; j < charachterList.size(); j++){
+            if(guess.charAt(i) == charachterList.get(i)){
+              numRemaining.set(i, numRemaining.get(i) - 1);
+            }
+          }
         }
       }
       
