@@ -103,6 +103,21 @@ public class Wordle{
             }
           }
         }
+
+    for(int i 0; i < guess.length(); i++){
+      boolean exists = false;
+      for(int j =0; j < characterList.size(); j++){
+        if(guess.charAt(i) == charachterList.get(j)){
+          exists = true;
+        }
+      }
+      if(!exists){
+        stringBuilder[i] = '-';
+      }
+    }
+        for(int i = 0; i < stringBuilder.length; i++){
+          resultToDisplay = resultToDisplay + stringBuilder[i];
+        }
       }
     }
     return resultToDisplay;
