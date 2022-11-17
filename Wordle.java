@@ -145,7 +145,15 @@ public class Wordle {
   private void playGame() {
     while(guesses.size() < 6){
       displays.add(makeGuess());
+      for(int  i = 0; i < guesses.size(); i++){
+        System.out.println(guesses.get(i));
+      }
+      if(guesses.get(guesses.size - 1).equals(currentWord)){
+        System.out.println("You Win!!!");
+        return;
+      }
       
     }
+    System.out.println("You Lose!!! The word was"+ currentWord);
   }
 }
